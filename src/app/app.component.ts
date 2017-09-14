@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlertaService } from './alerta/alerta.service';
 
 @Component({
     selector: 'app-root',
@@ -8,11 +9,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
     private title: string;
 
-    constructor() {
+    constructor(
+        private service: AlertaService
+    ) {
         this.title = `Angular`;
     }
 
     hello(): void {
-        alert(`Som...som... testando...`);
+        this.service.msgAlerta('Alerta!');
     }
 }

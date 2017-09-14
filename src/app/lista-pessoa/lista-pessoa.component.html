@@ -1,6 +1,6 @@
 <h2>{{title}}</h2>
 <input [(ngModel)]="nome">
-<p>{{nome}}</p>
+<button (click)="enviarNome()">Enviar</button>
 <ul>
     <li *ngFor="let pessoa of pessoas">
         {{pessoa}}

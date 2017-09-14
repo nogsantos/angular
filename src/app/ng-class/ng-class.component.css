@@ -1,0 +1,23 @@
+.cor-fundo {
+    background-color: lightgray;
+}
+
+.pointer {
+    cursor: pointer;
+    border: 1px dotted white;
+}
+.pointer:hover {
+    border: 1px dotted green;
+}
+
+.cor-letra {
+    color: red;
+}
+
+.estilo-letra {
+    font-style: italic;
+}
+
+.borda-paragrafo {
+    border: 2px green solid;
+}

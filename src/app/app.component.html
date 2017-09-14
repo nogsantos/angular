@@ -1,8 +1,44 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-    <h1>
-        Welcome to {{title}}!
-    </h1>
+    <h1>Welcome to {{title}}!</h1>
     <img width="120" (click)="hello()" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 </div>
-<app-lista-pessoa></app-lista-pessoa>
+<nav>
+    <ul>
+        <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/listaPessoaComponent">Listagem</a></li>
+        <li><a routerLink="/interpolation">Interpolation</a></li>
+        <li><a routerLink="/property-binding">Property binding</a></li>
+        <li><a routerLink="/two-way-binding">Two way binding</a></li>
+        <li><a routerLink="/ng-if-component">If component</a></li>
+        <li><a routerLink="/ng-switch-component">Switch component</a></li>
+        <li><a routerLink="/ng-for-component">For component</a></li>
+        <li><a routerLink="/ng-class-component">Class component</a></li>
+        <li><a routerLink="/ng-style-component">Style component</a></li>
+        <li><a routerLink="/ng-content-component">Content component</a></li>
+    </ul>
+</nav>
+<div style="text-align:center">
+    <router-outlet></router-outlet>
+</div>
+
+<!-- <div class="w100">
+    <app-lista-pessoa></app-lista-pessoa>
+</div>
+<div class="w100">
+    <app-interpolation-binding></app-interpolation-binding>
+</div>
+<div class="w100">
+    <app-property-binding></app-property-binding>
+</div>
+<div class="w100">
+    <app-two-way-binding></app-two-way-binding>
+</div>
+<div class="w100">
+    <app-ng-if></app-ng-if>
+</div>
+<div class="w100">
+    <app-ng-switch></app-ng-switch>
+</div>
+<div class="w100">
+    <app-ng-for></app-ng-for>
+</div> -->

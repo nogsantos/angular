@@ -1,0 +1,20 @@
+<h2>{{title}}</h2>
+<div *ngIf="true">
+    <pre>
+        *ngIf verdadeiro
+    </pre>
+</div>
+<div *ngIf="false">
+    <pre>
+        *ngIf falso
+    </pre>
+</div>
+<div>
+    <button (click)="mostrar()">Exibir nome</button>
+    <p *ngIf="resolve">Condicional</p>
+</div>
+<div>
+    <p *ngIf="cursos.length == 0">Não temos cursos disponíveis</p>
+    <p *ngIf="cursos.length > 0">Agora temos curso cadastrado</p>
+    <button (click)="addCurso()">Add novo curso</button>
+</div>

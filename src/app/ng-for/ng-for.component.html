@@ -1,0 +1,7 @@
+<h2>{{title}}</h2>
+<button (click)="atualizar()">Atualizar</button>
+<ul>
+    <li *ngFor="let nome of nomes, let i=index; trackBy:meuSave">
+       {{i+1}} - Nome: <b>{{nome.nome}}</b> ID: {{nome.id}}
+    </li>
+</ul>
