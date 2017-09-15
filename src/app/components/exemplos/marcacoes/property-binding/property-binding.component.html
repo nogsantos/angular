@@ -1,0 +1,15 @@
+<div md-content>
+    <section>
+        <h2>{{title}}</h2>
+    </section>
+    <section>
+        <button md-raised-button (click)="mostrar()">Ocultar paragrafo</button>
+        <md-list dense>
+            <md-list-item>
+                <span [hidden]="!verParagrafo">
+                    Habilitado
+                </span>
+            </md-list-item>
+        </md-list>
+    </section>
+</div>

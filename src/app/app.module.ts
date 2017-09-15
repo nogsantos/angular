@@ -7,19 +7,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './modules/app-routing/app-routing.module';
 import { MaterialModule } from './modules/material/material.module';
+import 'hammerjs';
 
 import { AlertaService } from './services/alerta/alerta.service';
-import { ListaPessoaComponent } from './components/exemplos/lista-pessoa/lista-pessoa.component';
-import { InterpolationBindingComponent } from './components/exemplos/interpolation-binding/interpolation-binding.component';
-import { PropertyBindingComponent } from './components/exemplos/property-binding/property-binding.component';
-import { TwoWayBindingComponent } from './components/exemplos/two-way-binding/two-way-binding.component';
-import { NgIfComponent } from './components/exemplos/ng-if/ng-if.component';
-import { NgSwitchComponent } from './components/exemplos/ng-switch/ng-switch.component';
-import { NgForComponent } from './components/exemplos/ng-for/ng-for.component';
-import { NgClassComponent } from './components/exemplos/ng-class/ng-class.component';
-import { NgStyleComponent } from './components/exemplos/ng-style/ng-style.component';
-import { NgContentComponent } from './components/exemplos/ng-content/ng-content.component';
-import { NavbarComponent } from './components/exemplos/navbar/navbar.component';
+import { ListaPessoaComponent } from './components/exemplos/marcacoes/lista-pessoa/lista-pessoa.component';
+import { InterpolationBindingComponent } from './components/exemplos/marcacoes/interpolation-binding/interpolation-binding.component';
+import { PropertyBindingComponent } from './components/exemplos/marcacoes/property-binding/property-binding.component';
+import { TwoWayBindingComponent } from './components/exemplos/marcacoes/two-way-binding/two-way-binding.component';
+import { NgIfComponent } from './components/exemplos/marcacoes/ng-if/ng-if.component';
+import { NgSwitchComponent } from './components/exemplos/marcacoes/ng-switch/ng-switch.component';
+import { NgForComponent } from './components/exemplos/marcacoes/ng-for/ng-for.component';
+import { NgClassComponent } from './components/exemplos/marcacoes/ng-class/ng-class.component';
+import { NgStyleComponent } from './components/exemplos/marcacoes/ng-style/ng-style.component';
+import { NgContentComponent } from './components/exemplos/marcacoes/ng-content/ng-content.component';
+import { MarcacoesComponent } from './components/exemplos/marcacoes/marcacoes.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { IndexComponent } from './components/index/index.component';
 
 @NgModule({
@@ -36,6 +38,7 @@ import { IndexComponent } from './components/index/index.component';
         NgStyleComponent,
         NgContentComponent,
         NavbarComponent,
+        MarcacoesComponent,
         IndexComponent
     ],
     imports: [
