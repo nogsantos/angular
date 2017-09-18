@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col s12 m12 l12">
+        <h2 class="flow-text">{{title}}</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 m12 l12">
+        <div class="card-panel white lighten-2">
+            <div class="row">
+                <p [style.font-size]="30+'px'">valor fixo</p>
+                <p [style.font-size]="valorFonte">método da classe componente send o referenciado no template</p>
+            </div>
+            <div class="row">
+                <button md-raised-button (click)="incrementar()">Aumentar fonte</button>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12">
+        <div class="card-panel white lighten-2">
+            <div class="row">
+                <p [style.font-size]="validaFonte ? 'x-large':'smaller'" [style.color]="validaCor ? 'red' : 'blue'">muda valor com condição ternária</p>
+            </div>
+            <div class="row">
+                <span>Mudar</span>
+                <button md-raised-button (click)="mudaFonte()">Fonte</button>
+                <button md-raised-button (click)="mudaCor()">Cor</button>
+            </div>
+        </div>
+    </div>
+</div>

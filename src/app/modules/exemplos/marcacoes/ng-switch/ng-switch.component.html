@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col s12 m12 l12">
+        <h2 class="flow-text">{{title}}</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 m12 l12">
+        <div class="row">
+            <button md-raised-button (click)="incrementarNumero()">Incrementar número</button>
+        </div>
+        <div class="row">
+            <div class="card-panel yellow lighten-2 green-text text-darken-2 center">
+                <div [ngSwitch]="numero">
+                    <p *ngSwitchCase="1">a variável está com o valor de {{numero}}</p>
+                    <p *ngSwitchCase="2">a variável está com o valor de {{numero}}</p>
+                    <p *ngSwitchCase="3">a variável está com o valor de {{numero}}</p>
+                    <p *ngSwitchCase="4">a variável está com o valor de {{numero}}</p>
+                    <p *ngSwitchCase="5">a variável está com o valor de {{numero}}</p>
+                    <p *ngSwitchDefault>Mensagem padrão</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

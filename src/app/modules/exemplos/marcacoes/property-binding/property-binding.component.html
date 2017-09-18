@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col s12 m12 l12">
+        <h2 class="flow-text">{{title}}</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 m12 l12">
+        <section>
+            <button md-raised-button (click)="mostrar()">Ocultar paragrafo</button>
+            <div [hidden]="!verParagrafo" class="card-panel teal lighten-2 center">Habilitado</div>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col s12 m12 l12">
+        <h2 class="flow-text">{{title}}</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 m12 l12">
+        <button md-raised-button (click)="atualizar()">Atualizar</button>
+        <ul>
+            <li *ngFor="let nome of nomes, let i=index; trackBy:meuSave">
+                {{i+1}} - Nome: <b>{{nome.nome}}</b> ID: {{nome.id}}
+            </li>
+        </ul>
+    </div>
+</div>

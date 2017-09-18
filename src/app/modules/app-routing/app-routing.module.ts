@@ -1,12 +1,9 @@
-/**
- * Definição das rotas do App.
- */
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { IndexComponent } from '../../components/index/index.component';
-import { MarcacoesModule } from '../../components/exemplos/marcacoes/marcacoes.module';
+import { MarcacoesModule } from '../../modules/exemplos/marcacoes/marcacoes.module';
 /**
  * Rotas
  */
@@ -23,10 +20,15 @@ const appRoutes: Routes = [
     },
     {
         path: 'exemplos/marcacoes',
-        loadChildren: 'app/components/exemplos/marcacoes/marcacoes.module#MarcacoesModule'
+        loadChildren: 'app/modules/exemplos/marcacoes/marcacoes.module#MarcacoesModule'
     }
 ];
-
+/**
+ * Definição das rotas default do App.
+ *
+ * @export
+ * @class AppRoutingModule
+ */
 @NgModule({
     imports: [
         RouterModule.forRoot(

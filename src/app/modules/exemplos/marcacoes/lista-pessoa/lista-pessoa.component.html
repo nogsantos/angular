@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col s12 m12 l12">
+        <h2 class="flow-text">{{title}}</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 m12 l6">
+        <md-form-field>
+            <input mdInput [(ngModel)]="nome">
+        </md-form-field>
+        <button md-raised-button (click)="enviarNome()">Enviar</button>
+    </div>
+    <div class="col s12 m12 l6">
+        <md-list dense>
+            <md-list-item *ngFor="let pessoa of pessoas">
+                {{pessoa}}
+            </md-list-item>
+        </md-list>
+    </div>
+</div>

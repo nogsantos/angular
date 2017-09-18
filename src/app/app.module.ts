@@ -1,8 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './modules/app-routing/app-routing.module';
@@ -12,7 +11,7 @@ import 'hammerjs';
 import { AlertaService } from './services/alerta/alerta.service';
 import { IndexComponent } from './components/index/index.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { MarcacoesModule } from './components/exemplos/marcacoes/marcacoes.module';
+import { MarcacoesModule } from './modules/exemplos/marcacoes/marcacoes.module';
 
 @NgModule({
     declarations: [
@@ -23,10 +22,10 @@ import { MarcacoesModule } from './components/exemplos/marcacoes/marcacoes.modul
     imports: [
         AppRoutingModule,
         BrowserModule,
-        FormsModule,
         BrowserAnimationsModule,
+        FormsModule,
         MaterialModule,
-        MarcacoesModule
+        MarcacoesModule,
     ],
     providers: [
         AlertaService

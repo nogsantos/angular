@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col s12 m12 l12">
+        <h2 class="flow-text">{{title}}</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 m12 l12">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <ng-content select=".titulo"></ng-content>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <ng-content select=".corpo"></ng-content>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

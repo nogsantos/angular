@@ -1,9 +1,3 @@
-/**
- * Angular Material
- * https://material.angular.io/
- *
- * Exporta os módulos para o angular material. As declarações devem ser feitas nesse módulo.
- */
 import { NgModule } from '@angular/core';
 
 import { CdkTableModule } from '@angular/cdk/table';
@@ -17,7 +11,15 @@ import {
     MdSlideToggleModule, MdSnackBarModule, MdTableModule, MdTabsModule, MdToolbarModule,
     MdTooltipModule, MdFormFieldModule, MdExpansionModule
 } from '@angular/material';
-
+/**
+ * Angular Material
+ * https://material.angular.io/
+ *
+ * Exporta os módulos para o angular material. As declarações devem ser feitas nesse módulo.
+ *
+ * @export
+ * @class MaterialModule
+ */
 @NgModule({
     exports: [
         CdkTableModule,

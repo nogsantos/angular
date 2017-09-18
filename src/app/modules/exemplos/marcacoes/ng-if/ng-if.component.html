@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col s12 m12 l12">
+        <h2 class="flow-text">{{title}}</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 m12 l6">
+        <div *ngIf="true">
+            <pre>*ngIf verdadeiro</pre>
+        </div>
+        <div *ngIf="false">
+            <pre>*ngIf falso</pre>
+        </div>
+        <div>
+            <button md-raised-button (click)="mostrar()">Exibir nome</button>
+            <p *ngIf="resolve">Condicional</p>
+        </div>
+    </div>
+    <div class="col s12 m12 l6">
+        <div class="row">
+            <div class="card-panel red lighten-2 white-text text-darken-2 center" *ngIf="cursos.length == 0">Não temos cursos disponíveis</div>
+            <div class="card-panel green lighten-2 green-text text-darken-2 center" *ngIf="cursos.length > 0">Agora temos um curso cadastrado!</div>
+        </div>
+        <div class="row center">
+            <button md-fab class="blue accent-1" (click)="addCurso()">ADD</button>
+        </div>
+    </div>
+</div>
