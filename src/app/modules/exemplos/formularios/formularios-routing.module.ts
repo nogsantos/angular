@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { FormulariosComponent } from './formularios.component';
+import { ContatosComponent } from './contatos/contatos.component';
 
 const routes: Routes = [
     {
@@ -11,7 +12,7 @@ const routes: Routes = [
             {
                 path: '',
                 children: [
-
+                    {path: 'contatos', component: ContatosComponent}
                 ]
             }
         ]

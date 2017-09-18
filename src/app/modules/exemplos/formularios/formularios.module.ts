@@ -7,6 +7,7 @@ import 'hammerjs';
 
 import { FormulariosComponent } from './formularios.component';
 import { FormulariosRoutingModule } from './formularios-routing.module';
+import { ContatosComponent } from './contatos/contatos.component';
 
 @NgModule({
     imports: [
@@ -15,6 +16,6 @@ import { FormulariosRoutingModule } from './formularios-routing.module';
         MaterialModule,
         FormulariosRoutingModule
     ],
-    declarations: [FormulariosComponent]
+    declarations: [FormulariosComponent, ContatosComponent]
 })
 export class FormulariosModule { }

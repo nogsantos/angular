@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col s12 m12 l12">
+        <h2 class="flow-text">{{title}}</h2>
+    </div>
+</div>
+<div class="row">
+    <form class="col s12 m12 l12" #cadastro="ngForm">
+        <!-- nome -->
+        <div class="row">
+            <md-form-field class="input-field col s12 m12 l12">
+                <input mdInput placeholder="Nome" name="nome" [(ngModel)]="contato.nome" #nome="ngModel" required>
+            </md-form-field>
+            <div class="row" class="red-text" [hidden]="nome.valid || nome.pristine">
+                O valor Nome é obrigatório.
+            </div>
+        </div>
+        <div ngModelGroup="todosContatos" #todosContatos="ngModelGroup">
+            <!-- telefone -->
+            <div class="row">
+                <md-form-field class="input-field col s12 m12 l12">
+                    <input mdInput placeholder="Telefone" name="telefone" [(ngModel)]="contato.telefone" #telefone="ngModel" required>
+                </md-form-field>
+                <div class="row red-text" [hidden]="telefone.valid || telefone.pristine">
+                    O valor Telefone é obrigatório.
+                </div>
+            </div>
+            <!-- email -->
+            <div class="row">
+                <md-form-field class="input-field col s12 m12 l12">
+                    <input mdInput placeholder="Email" name="email" [(ngModel)]="contato.email" #email="ngModel">
+                </md-form-field>
+                <div class="row green-text" [hidden]="email.pristine">
+                    O conteúdo foi mudado
+                </div>
+                <div class="row blue-text" *ngIf="email.touched">
+                    Clicou fora do campo
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12 l12 right-align">
+                <button md-button [disabled]="cadastro.form.invalid" (click)="enviarDados()">Enviar</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">{{todosContatos}}</div>
+            <div class="col s12">{{todosContatos.value | json}}</div>
+        </div>
+    </form>
+</div>
