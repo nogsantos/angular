@@ -10,35 +10,14 @@ import { MaterialModule } from './modules/material/material.module';
 import 'hammerjs';
 
 import { AlertaService } from './services/alerta/alerta.service';
-import { ListaPessoaComponent } from './components/exemplos/marcacoes/lista-pessoa/lista-pessoa.component';
-import { InterpolationBindingComponent } from './components/exemplos/marcacoes/interpolation-binding/interpolation-binding.component';
-import { PropertyBindingComponent } from './components/exemplos/marcacoes/property-binding/property-binding.component';
-import { TwoWayBindingComponent } from './components/exemplos/marcacoes/two-way-binding/two-way-binding.component';
-import { NgIfComponent } from './components/exemplos/marcacoes/ng-if/ng-if.component';
-import { NgSwitchComponent } from './components/exemplos/marcacoes/ng-switch/ng-switch.component';
-import { NgForComponent } from './components/exemplos/marcacoes/ng-for/ng-for.component';
-import { NgClassComponent } from './components/exemplos/marcacoes/ng-class/ng-class.component';
-import { NgStyleComponent } from './components/exemplos/marcacoes/ng-style/ng-style.component';
-import { NgContentComponent } from './components/exemplos/marcacoes/ng-content/ng-content.component';
-import { MarcacoesComponent } from './components/exemplos/marcacoes/marcacoes.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { IndexComponent } from './components/index/index.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { MarcacoesModule } from './components/exemplos/marcacoes/marcacoes.module';
 
 @NgModule({
     declarations: [
         AppComponent,
-        ListaPessoaComponent,
-        InterpolationBindingComponent,
-        PropertyBindingComponent,
-        TwoWayBindingComponent,
-        NgIfComponent,
-        NgSwitchComponent,
-        NgForComponent,
-        NgClassComponent,
-        NgStyleComponent,
-        NgContentComponent,
         NavbarComponent,
-        MarcacoesComponent,
         IndexComponent
     ],
     imports: [
@@ -46,7 +25,8 @@ import { IndexComponent } from './components/index/index.component';
         BrowserModule,
         FormsModule,
         BrowserAnimationsModule,
-        MaterialModule
+        MaterialModule,
+        MarcacoesModule
     ],
     providers: [
         AlertaService
