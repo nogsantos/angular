@@ -1,15 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-marcacoes',
-  templateUrl: './marcacoes.component.html',
-  styleUrls: ['./marcacoes.component.scss']
+    selector: 'app-marcacoes',
+    templateUrl: './marcacoes.component.html',
+    styleUrls: ['./marcacoes.component.scss']
 })
 export class MarcacoesComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+    title: string;
+    /**
+     * Creates an instance of MarcacoesComponent.
+     * @memberof MarcacoesComponent
+     */
+    constructor() { }
+    /**
+     * INIT
+     *
+     * @memberof MarcacoesComponent
+     */
+    ngOnInit() {
+        this.title = `Marcações`;
+    }
 }

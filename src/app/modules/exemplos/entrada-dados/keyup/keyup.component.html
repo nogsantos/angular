@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col s12 m12 l12">
+        <h2 class="flow-text">{{title.first}}</h2>
+    </div>
+</div>
+<div class="row card-panel">
+    <div class="col s12 m12 l12">
+        <div class="card-panel yellow lighten-4 yellow-text text-darken-4">
+            Define uma quantidade mínima de characteres antes de habilitar o botão de salvar.
+        </div>
+    </div>
+    <div class="col s12 m12 l12 center">
+        <md-form-field>
+            <input type="password" mdInput #qtdSenha (keyup)="validarSenha(qtdSenha.value)">
+        </md-form-field>
+    </div>
+    <div class="col s12 m12 l12 center">
+        <button md-button [disabled]="!habilitarBotao" class="btn green darken-1 white-text" (click)="gravarSenha(qtdSenha.value)">Gravar senha</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 m12 l12">
+        <h2 class="flow-text">{{title.second}}</h2>
+    </div>
+</div>
+<div class="row card-panel">
+    <div class="col s12 m12 l12">
+        <div class="card-panel yellow lighten-4 yellow-text text-darken-4">
+            Executado quando a tecla enter for pressionada
+        </div>
+    </div>
+    <div class="col s12 m12 l12 center">
+        <md-form-field>
+            <input mdInput #conteudo (keyup.enter)="adicionarConteudo(conteudo.value); conteudo.value=''">
+        </md-form-field>
+    </div>
+    <div class="col s12 m12 l12 center">
+        <ul>
+            <li *ngFor="let item of valores">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+</div>

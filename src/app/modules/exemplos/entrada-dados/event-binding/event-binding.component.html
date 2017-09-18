@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col s12 m12 l12">
+        <h2 class="flow-text">{{title}}</h2>
+    </div>
+</div>
+<div class="row card-panel">
+    <div class="col s12 m12 l12">
+        <div class="card-panel yellow lighten-4 yellow-text text-darken-4">
+            Verificar retornos no console
+        </div>
+    </div>
+    <div class="col s12 m12 l3">
+        <p class="grey-text text-lighten-1">Click</p>
+        <button md-button class="btn purple darken-1 white-text" (click)="meuClick()">Click</button>
+    </div>
+    <div class="col s12 m12 l3">
+        <p class="grey-text text-lighten-1">Keyup</p>
+        <md-form-field>
+            <input mdInput (keyup)="digitou($event.target.value)">
+        </md-form-field>
+    </div>
+    <div class="col s12 m12 l3">
+        <p class="grey-text text-lighten-1">Variável de referência do template #</p>
+        <md-form-field>
+            <input mdInput #valorInput (keyup)="digitouVarTemplate(valorInput.value)">
+        </md-form-field>
+    </div>
+</div>

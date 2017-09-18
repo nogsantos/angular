@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col s12 m12 l12">
+        <h2 class="flow-text">{{title}}</h2>
+    </div>
+</div>
+<div class="row card-panel">
+    <div class="col s12 m12 l12 center">
+        <md-form-field>
+            <input type="text" mdInput #data (blur)="verIdade(data.value)" placeholder="Digite seu ano de nascimento">
+        </md-form-field>
+    </div>
+    <div class="col s12 m12 l12 center" *ngIf="idade">
+        Você tem: <b>{{idade}}</b> anos de idade
+    </div>
+</div>

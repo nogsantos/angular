@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col s12 m12 l12">
+        <h2 class="flow-text">{{title}}</h2>
+    </div>
+</div>
+<div class="row card-panel">
+    <div class="col s12 m12 l12">
+        <app-input [menu]="desenvolvimento" (nomeClicado)="valorPassado($event)"></app-input>
+        <div class="row">
+            <div *ngIf="valor">
+                você clicou em: <b>{{valor}}</b>
+            </div>
+        </div>
+    </div>
+</div>

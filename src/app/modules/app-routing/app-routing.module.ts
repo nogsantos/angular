@@ -21,7 +21,11 @@ const appRoutes: Routes = [
     {
         path: 'exemplos/marcacoes',
         loadChildren: 'app/modules/exemplos/marcacoes/marcacoes.module#MarcacoesModule'
-    }
+    },
+    {
+        path: 'exemplos/entrada-dados',
+        loadChildren: 'app/modules/exemplos/entrada-dados/entrada-dados.module#EntradaDadosModule'
+    },
 ];
 /**
  * Definição das rotas default do App.
