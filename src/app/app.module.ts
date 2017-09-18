@@ -11,7 +11,6 @@ import 'hammerjs';
 import { AlertaService } from './services/alerta/alerta.service';
 import { IndexComponent } from './components/index/index.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { MarcacoesModule } from './modules/exemplos/marcacoes/marcacoes.module';
 
 @NgModule({
     declarations: [
@@ -25,7 +24,6 @@ import { MarcacoesModule } from './modules/exemplos/marcacoes/marcacoes.module';
         BrowserAnimationsModule,
         FormsModule,
         MaterialModule,
-        MarcacoesModule,
     ],
     providers: [
         AlertaService

@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { IndexComponent } from '../../components/index/index.component';
-import { MarcacoesModule } from '../../modules/exemplos/marcacoes/marcacoes.module';
+// import { MarcacoesModule } from '../../modules/exemplos/marcacoes/marcacoes.module';
 /**
  * Rotas
  */
@@ -25,6 +25,10 @@ const appRoutes: Routes = [
     {
         path: 'exemplos/entrada-dados',
         loadChildren: 'app/modules/exemplos/entrada-dados/entrada-dados.module#EntradaDadosModule'
+    },
+    {
+        path: 'exemplos/formularios',
+        loadChildren: 'app/modules/exemplos/formularios/formularios.module#FormulariosModule'
     },
 ];
 /**

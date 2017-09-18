@@ -13,7 +13,7 @@ import { NgClassComponent } from './ng-class/ng-class.component';
 import { NgStyleComponent } from './ng-style/ng-style.component';
 import { NgContentComponent } from './ng-content/ng-content.component';
 
-const marcacoesRoutes: Routes = [
+const routes: Routes = [
     {
         path: '',
         component: MarcacoesComponent,
@@ -39,7 +39,7 @@ const marcacoesRoutes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forChild(marcacoesRoutes)
+        RouterModule.forChild(routes)
     ],
     exports: [
         RouterModule
