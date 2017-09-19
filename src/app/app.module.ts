@@ -11,12 +11,14 @@ import 'hammerjs';
 import { AlertaService } from './services/alerta/alerta.service';
 import { IndexComponent } from './components/index/index.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavbarComponent,
-        IndexComponent
+        IndexComponent,
+        NotFoundComponent
     ],
     imports: [
         AppRoutingModule,

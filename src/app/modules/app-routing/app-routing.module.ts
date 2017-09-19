@@ -3,19 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { IndexComponent } from '../../components/index/index.component';
+import { NotFoundComponent } from '../../components/not-found/not-found.component';
 /**
  * Rotas
  */
 const appRoutes: Routes = [
     {
         path: '',
-        redirectTo: 'index',
-        pathMatch: 'full'
-    },
-    {
-        path: 'index',
-        component: IndexComponent,
-        data: { title: `Index` }
+        component: IndexComponent
     },
     {
         path: 'exemplos/marcacoes',
@@ -36,6 +31,14 @@ const appRoutes: Routes = [
     {
         path: 'lista-contatos',
         loadChildren: 'app/modules/lista-contatos/lista-contatos.module#ListaContatosModule'
+    },
+    {
+        path: 'swapi',
+        loadChildren: 'app/modules/swapi/swapi.module#SwapiModule'
+    },
+    {
+        path: '**',
+        component: NotFoundComponent
     },
 ];
 /**

@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col s12 m12 l12">
+        <h2 class="flow-text">{{title}}</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 l12 m12">
+        <table class="bordered highlight">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Url</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr [ngStyle]="{'cursor': 'pointer'}" *ngFor="let item of peoples; index as i">
+                    <td scope="row">{{i + 1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.gender}}</td>
+                    <td>{{item.url}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
