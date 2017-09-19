@@ -33,6 +33,10 @@ const appRoutes: Routes = [
         path: 'exemplos/injecao-dependencia',
         loadChildren: 'app/modules/exemplos/di/di.module#DiModule'
     },
+    {
+        path: 'lista-contatos',
+        loadChildren: 'app/modules/lista-contatos/lista-contatos.module#ListaContatosModule'
+    },
 ];
 /**
  * Definição das rotas default do App.

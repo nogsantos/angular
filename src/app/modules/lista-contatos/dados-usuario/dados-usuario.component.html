@@ -1,0 +1,48 @@
+<md-card>
+    <md-card-title class="flow-text">
+        {{title}}
+    </md-card-title>
+    <md-card-content>
+        <div class="row">
+            <form class="col s12 m12 l12" #cadastro="ngForm">
+                <!-- nome -->
+                <div class="row">
+                    <md-form-field class="input-field col s12 m12 l12">
+                        <input mdInput placeholder="Nome" name="nome" [(ngModel)]="contato.nome" #nome="ngModel" required>
+                    </md-form-field>
+                    <div class="row" class="red-text" [hidden]="nome.valid || nome.pristine">
+                        Nome é um campo obrigatório.
+                    </div>
+                </div>
+                <div ngModelGroup="todosContatos" #todosContatos="ngModelGroup">
+                    <!-- telefone -->
+                    <div class="row">
+                        <md-form-field class="input-field col s12 m12 l12">
+                            <input mdInput placeholder="Telefone" name="telefone" [(ngModel)]="contato.telefone" #telefone="ngModel" required>
+                        </md-form-field>
+                        <div class="row red-text" [hidden]="telefone.valid || telefone.pristine">
+                            Telefone um campo é obrigatório.
+                        </div>
+                    </div>
+                    <!-- email -->
+                    <div class="row">
+                        <md-form-field class="input-field col s12 m12 l12">
+                            <input mdInput placeholder="Email" name="email" [(ngModel)]="contato.email" #email="ngModel">
+                        </md-form-field>
+                    </div>
+                    <!-- Tipo contato -->
+                    <div class="row">
+                        <md-select placeholder="Tipo do contato" class="col s12 m12 l12" [(ngModel)]="contato.tipo" name="tipo" #tipo="ngModel">
+                            <md-option *ngFor="let item of tipos" [value]="item">
+                                {{ item }}
+                            </md-option>
+                        </md-select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </md-card-content>
+    <md-card-actions class="right-align">
+        <button md-button [disabled]="cadastro.form.invalid" (click)="enviarDados()">Enviar</button>
+    </md-card-actions>
+</md-card>
