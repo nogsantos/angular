@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { ContatoModel } from '../models/contato-model';
 
 @Component({
     selector: 'app-detalhe-usuario',
@@ -7,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalheUsuarioComponent implements OnInit {
     title: string;
+    @Input() contato: ContatoModel;
     /**
      * Creates an instance of DetalheUsuarioComponent.
      * @memberof DetalheUsuarioComponent

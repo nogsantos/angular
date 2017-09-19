@@ -4,45 +4,48 @@
     </md-card-title>
     <md-card-content>
         <div class="row">
-            <form class="col s12 m12 l12" #cadastro="ngForm">
+            <form class="col s12 m12 l12" #formulario="ngForm">
                 <!-- nome -->
                 <div class="row">
                     <md-form-field class="input-field col s12 m12 l12">
-                        <input mdInput placeholder="Nome" name="nome" [(ngModel)]="contato.nome" #nome="ngModel" required>
+                        <input mdInput placeholder="Nome" name="nome" [(ngModel)]="contato.nome" #nome="ngModel" required autocomplete="off">
                     </md-form-field>
-                    <div class="row" class="red-text" [hidden]="nome.valid || nome.pristine">
-                        Nome é um campo obrigatório.
+                    <div class="row" class="red-text" *ngIf="nome.invalid && (nome.dirty || nome.touched)">
+                        <small>Nome é um campo obrigatório.</small>
                     </div>
                 </div>
-                <div ngModelGroup="todosContatos" #todosContatos="ngModelGroup">
-                    <!-- telefone -->
-                    <div class="row">
-                        <md-form-field class="input-field col s12 m12 l12">
-                            <input mdInput placeholder="Telefone" name="telefone" [(ngModel)]="contato.telefone" #telefone="ngModel" required>
-                        </md-form-field>
-                        <div class="row red-text" [hidden]="telefone.valid || telefone.pristine">
-                            Telefone um campo é obrigatório.
-                        </div>
-                    </div>
-                    <!-- email -->
-                    <div class="row">
-                        <md-form-field class="input-field col s12 m12 l12">
-                            <input mdInput placeholder="Email" name="email" [(ngModel)]="contato.email" #email="ngModel">
-                        </md-form-field>
-                    </div>
-                    <!-- Tipo contato -->
-                    <div class="row">
-                        <md-select placeholder="Tipo do contato" class="col s12 m12 l12" [(ngModel)]="contato.tipo" name="tipo" #tipo="ngModel">
-                            <md-option *ngFor="let item of tipos" [value]="item">
-                                {{ item }}
-                            </md-option>
-                        </md-select>
+                <!-- telefone -->
+                <div class="row">
+                    <md-form-field class="input-field col s12 m12 l12">
+                        <input mdInput placeholder="Telefone" name="telefone" [(ngModel)]="contato.telefone" #telefone="ngModel" required autocomplete="off">
+                    </md-form-field>
+                    <div class="row red-text" *ngIf="telefone.invalid && (telefone.dirty || telefone.touched)">
+                        <small>Telefone um campo é obrigatório.</small>
                     </div>
                 </div>
+                <!-- email -->
+                <div class="row">
+                    <md-form-field class="input-field col s12 m12 l12">
+                        <input mdInput type="email" placeholder="Email" name="email" [(ngModel)]="contato.email" #email="ngModel" email autocomplete="off">
+                    </md-form-field>
+                    <div class="row red-text" *ngIf="email.invalid && (email.dirty || email.touched)">
+                        <small>Email inválido.</small>
+                    </div>
+                </div>
+                <!-- Tipo contato -->
+                <div class="row">
+                    <md-select placeholder="Tipo do contato" class="col s12 m12 l12" [(ngModel)]="contato.tipo" name="tipo" #tipo="ngModel">
+                        <md-option *ngFor="let item of tipos" [value]="item">
+                            {{ item }}
+                        </md-option>
+                    </md-select>
+                </div>
+                <!-- </div> -->
             </form>
         </div>
     </md-card-content>
     <md-card-actions class="right-align">
-        <button md-button [disabled]="cadastro.form.invalid" (click)="enviarDados()">Enviar</button>
+        <button md-button (click)="novo()">Novo</button>
+        <button md-button [disabled]="formulario.form.invalid" (click)="salvar()">Enviar</button>
     </md-card-actions>
 </md-card>

@@ -10,6 +10,7 @@ import { DetalheUsuarioComponent } from './detalhe-usuario/detalhe-usuario.compo
 import { ListaUsuarioComponent } from './lista-usuario/lista-usuario.component';
 import { IndexComponent } from './index/index.component';
 import { ListaContatosRoutingModule } from './lista-contatos-routing.module';
+import { ContatosDataBaseService } from './services/contatos-data-base.service';
 
 @NgModule({
     imports: [
@@ -23,6 +24,7 @@ import { ListaContatosRoutingModule } from './lista-contatos-routing.module';
         DetalheUsuarioComponent,
         ListaUsuarioComponent,
         IndexComponent
-    ]
+    ],
+    providers: [ContatosDataBaseService]
 })
 export class ListaContatosModule { }

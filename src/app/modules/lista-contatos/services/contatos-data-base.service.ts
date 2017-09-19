@@ -4,7 +4,7 @@ import { ContatoModel } from '../models/contato-model';
 
 @Injectable()
 export class ContatosDataBaseService {
-    contatos: Array<ContatoModel>;
+    contatos: Array<ContatoModel> = [];
     enviarContatos = new EventEmitter();
     /**
      * Creates an instance of ContatosDataBaseService.
@@ -16,9 +16,10 @@ export class ContatosDataBaseService {
      *
      * @memberof ContatosDataBaseService
      */
-    set contato(novoContato: ContatoModel) {
+    salvar(novoContato: ContatoModel) {
         this.contatos.push(novoContato);
         this.enviarContatos.emit(this.contatos);
+        console.log(JSON.stringify(this.contatos));
     }
     /**
      * Get by id
@@ -27,7 +28,7 @@ export class ContatosDataBaseService {
      * @returns {ContatoModel}
      * @memberof ContatosDataBaseService
      */
-    getContato(id: number): ContatoModel {
+    getById(id: number): ContatoModel {
         let cont: ContatoModel;
         cont = this.contatos[id];
         return cont;

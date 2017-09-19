@@ -10,9 +10,9 @@
 </div>
 <div class="row">
     <div class="col s12 m12 l6">
-        <app-lista-usuario></app-lista-usuario>
+        <app-lista-usuario (idClicado)="enviarDetalhe($event)"></app-lista-usuario>
     </div>
     <div class="col s12 m12 l6">
-        <app-detalhe-usuario></app-detalhe-usuario>
+        <app-detalhe-usuario [contato]="contatoclicado"></app-detalhe-usuario>
     </div>
 </div>

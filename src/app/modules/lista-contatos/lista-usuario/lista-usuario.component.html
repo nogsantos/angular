@@ -5,7 +5,22 @@
     <md-card-content>
         <div class="row">
             <div class="col s12 m12 l12">
-
+                <table class="bordered highlight">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nome</th>
+                            <th>Tipo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr [ngStyle]="{'cursor': 'pointer'}" *ngFor="let item of listaDeContatos; index as i" (click)="atualizar(i)">
+                            <td scope="row">{{i + 1}}</td>
+                            <td>{{item.nome}}</td>
+                            <td>{{item.tipo}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </md-card-content>

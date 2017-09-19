@@ -5,7 +5,10 @@
     <md-card-content>
         <div class="row">
             <div class="col s12 m12 l12">
-
+                <p>Nome: <strong *ngIf="contato?.nome; else nameless">{{contato?.nome}}</strong><ng-template #nameless>--</ng-template></p>
+                <p>Telefone: <strong *ngIf="contato?.telefone; else phoneless">{{contato?.telefone}}</strong><ng-template #phoneless>--</ng-template></p>
+                <p>Email: <strong *ngIf="contato?.email; else mailless">{{contato?.email}}</strong><ng-template #mailless>--</ng-template></p>
+                <p>Tipo: <strong *ngIf="contato?.tipo; else typeless">{{contato?.tipo}}</strong><ng-template #typeless>--</ng-template></p>
             </div>
         </div>
     </md-card-content>
