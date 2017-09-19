@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { IndexComponent } from '../../components/index/index.component';
-// import { MarcacoesModule } from '../../modules/exemplos/marcacoes/marcacoes.module';
 /**
  * Rotas
  */
@@ -29,6 +28,10 @@ const appRoutes: Routes = [
     {
         path: 'exemplos/formularios',
         loadChildren: 'app/modules/exemplos/formularios/formularios.module#FormulariosModule'
+    },
+    {
+        path: 'exemplos/injecao-dependencia',
+        loadChildren: 'app/modules/exemplos/di/di.module#DiModule'
     },
 ];
 /**
