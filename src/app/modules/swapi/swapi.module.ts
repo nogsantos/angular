@@ -8,19 +8,24 @@ import 'hammerjs';
 
 import { SwapingRoutingModule } from './swapi-routing.module';
 import { HttpService } from './services/http/http.service';
-import { PeopleComponent } from './components/people/people.component';
 import { IndexComponent } from './components/index/index.component';
+import { PeopleHeadlineComponent } from './components/people/people-headline/people-headline.component';
+import { PeopleGridComponent } from './components/people/people-grid/people-grid.component';
+import { PeopleDetailsComponent } from './components/people/people-details/people-details.component';
 
 @NgModule({
     imports: [
         CommonModule,
+        FormsModule,
         HttpModule,
         MaterialModule,
         SwapingRoutingModule,
     ],
     declarations: [
-        PeopleComponent,
-        IndexComponent
+        IndexComponent,
+        PeopleHeadlineComponent,
+        PeopleGridComponent,
+        PeopleDetailsComponent
     ],
     providers: [
         HttpService

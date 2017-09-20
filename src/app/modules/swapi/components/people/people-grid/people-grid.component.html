@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="col s12 m12 l12">
+        <h2 class="flow-text">{{title}}</h2>
+    </div>
+</div>
+<div class="row">
+    <md-form-field class="input-field col s12 m12 l12">
+        <input mdInput placeholder="Localizar por nome" name="name" [(ngModel)]="people.name" #peopleName="ngModel" (keyup.enter)="search()" autocomplete="off">
+        <md-icon mdSuffix>
+            <img src="./assets/images/ic_search.svg">
+        </md-icon>
+    </md-form-field>
+</div>
+<div class="row" *ngIf="loading.default">
+    <div class="col s12 m12 l12">
+        <md-progress-bar mode="indeterminate"></md-progress-bar>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 m12 l12">
+        <md-accordion class="people-grid-list">
+            <md-expansion-panel *ngFor="let item of peoples; index as i" (opened)="getHomeworld(item.homeworld)" hideToggle="true">
+                <md-expansion-panel-header>
+                    <md-panel-title class="flow-text">
+                        {{item.name}}
+                    </md-panel-title>
+                    &nbsp; &nbsp;
+                    <md-panel-description>
+                        <md-icon>
+                            <img src="./assets/images/{{setGender(item.gender)}}" alt="{{item.gender}}">
+                        </md-icon>
+                    </md-panel-description>
+                </md-expansion-panel-header>
+                <div class="row">
+                    <div class="col s12 m12 l2">
+                        <p>Bio</p>
+                        <md-list>
+                            <md-list-item>Homeworld: {{homeworld}}<img *ngIf="loading.homeworld" src="./assets/images/ic_loader.gif"></md-list-item>
+                            <md-list-item>Birth: {{item.birth_year}}</md-list-item>
+                            <md-list-item>Eye color: {{item.eye_color}}</md-list-item>
+                            <md-list-item>Hair color: {{item.hair_color}}</md-list-item>
+                            <md-list-item>Height: {{item.height}}cm</md-list-item>
+                            <md-list-item>Mass: {{item.mass}}kg</md-list-item>
+                            <md-list-item>Skin color: {{item.skin_color}}</md-list-item>
+                        </md-list>
+                    </div>
+                    <div class="col s12 m12 l10">
+                        <div class="col s12 m12 l3">
+                            <p>Filmes</p>
+                            <md-list>
+                                <md-list-item *ngFor="let film of item.films; index as i">
+                                    {{film}}
+                                </md-list-item>
+                            </md-list>
+                        </div>
+                        <div class="col s12 m12 l3">
+                            <p>Especies</p>
+                            <md-list>
+                                <md-list-item *ngFor="let specie of item.species; index as i">
+                                    {{specie}}
+                                </md-list-item>
+                            </md-list>
+                        </div>
+                        <div class="col s12 m12 l3">
+                            <p>Espaçonaves</p>
+                            <md-list>
+                                <md-list-item *ngFor="let starship of item.starships; index as i">
+                                    {{starship}}
+                                </md-list-item>
+                            </md-list>
+                        </div>
+                        <div class="col s12 m12 l3">
+                            <p>Veículos</p>
+                            <md-list>
+                                <md-list-item *ngFor="let vehicle of item.vehicles; index as i">
+                                    {{vehicle}}
+                                </md-list-item>
+                            </md-list>
+                        </div>
+                    </div>
+                </div>
+            </md-expansion-panel>
+        </md-accordion>
+    </div>
+</div>

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PeopleComponent } from './people.component';
+import { PeopleGridComponent } from './people-grid.component';
 
-describe('PeopleComponent', () => {
-  let component: PeopleComponent;
-  let fixture: ComponentFixture<PeopleComponent>;
+describe('PeopleGridComponent', () => {
+  let component: PeopleGridComponent;
+  let fixture: ComponentFixture<PeopleGridComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PeopleComponent ]
+      declarations: [ PeopleGridComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PeopleComponent);
+    fixture = TestBed.createComponent(PeopleGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
