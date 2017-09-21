@@ -8,9 +8,6 @@ import { Router } from '@angular/router';
     styleUrls: ['./index.component.scss']
 })
 export class IndexComponent implements OnInit {
-    titles = {
-        people: null
-    };
     /**
      * Creates an instance of IndexComponent.
      * @memberof IndexComponent
@@ -22,7 +19,6 @@ export class IndexComponent implements OnInit {
      * @memberof IndexComponent
      */
     ngOnInit() {
-        this.titles.people = `A People resource is an individual person or character within the Star Wars universe.`;
     }
 
 }

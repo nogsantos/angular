@@ -12,6 +12,9 @@ import { IndexComponent } from './components/index/index.component';
 import { PeopleHeadlineComponent } from './components/people/people-headline/people-headline.component';
 import { PeopleGridComponent } from './components/people/people-grid/people-grid.component';
 import { PeopleDetailsComponent } from './components/people/people-details/people-details.component';
+import { PlanetsHeadlineComponent } from './components/planets/planets-headline/planets-headline.component';
+import { PlanetsDetailsComponent } from './components/planets/planets-details/planets-details.component';
+import { PlanetsGridComponent } from './components/planets/planets-grid/planets-grid.component';
 
 @NgModule({
     imports: [
@@ -25,7 +28,10 @@ import { PeopleDetailsComponent } from './components/people/people-details/peopl
         IndexComponent,
         PeopleHeadlineComponent,
         PeopleGridComponent,
-        PeopleDetailsComponent
+        PeopleDetailsComponent,
+        PlanetsHeadlineComponent,
+        PlanetsDetailsComponent,
+        PlanetsGridComponent
     ],
     providers: [
         HttpService
