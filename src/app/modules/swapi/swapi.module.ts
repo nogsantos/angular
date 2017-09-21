@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { MaterialModule } from '../../modules/material/material.module';
 import 'hammerjs';
+import 'jquery';
 
 import { SwapingRoutingModule } from './swapi-routing.module';
 import { HttpService } from './services/http/http.service';
@@ -15,6 +16,8 @@ import { PeopleDetailsComponent } from './components/people/people-details/peopl
 import { PlanetsHeadlineComponent } from './components/planets/planets-headline/planets-headline.component';
 import { PlanetsDetailsComponent } from './components/planets/planets-details/planets-details.component';
 import { PlanetsGridComponent } from './components/planets/planets-grid/planets-grid.component';
+import { PeopleSearchComponent } from './components/people/people-search/people-search.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
     imports: [
@@ -31,7 +34,9 @@ import { PlanetsGridComponent } from './components/planets/planets-grid/planets-
         PeopleDetailsComponent,
         PlanetsHeadlineComponent,
         PlanetsDetailsComponent,
-        PlanetsGridComponent
+        PlanetsGridComponent,
+        PeopleSearchComponent,
+        PaginationComponent
     ],
     providers: [
         HttpService

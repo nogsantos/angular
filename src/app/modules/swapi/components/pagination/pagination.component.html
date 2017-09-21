@@ -1,0 +1,12 @@
+<div class="col s12" *ngIf="count > 0">
+    <md-card>
+        <div class="row">
+            <div class="col s12 m12 l2 left-align">
+                <button md-button [disabled]="!previous" (click)="doPagination(previous)">&#171; Voltar</button>
+            </div>
+            <div class="col s12 m12 l2 rigth-align">
+                <button md-button [disabled]="!next" (click)="doPagination(next)">Avançar &#187;</button>
+            </div>
+        </div>
+    </md-card>
+</div>

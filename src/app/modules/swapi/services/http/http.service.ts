@@ -24,13 +24,16 @@ export class HttpService {
      * @returns {Promise<any[]>}
      * @memberof HttpService
      */
-    get(resorce: string, search_by?: string, id?: number): Promise<any[]> {
+    get(resorce: string, search_by?: string, id?: number, page?: string): Promise<any[]> {
         let parameter = '';
         if (search_by) {
             parameter = `?search=${search_by}`;
         }
         if (id) {
             parameter = `${id}`;
+        }
+        if (page) {
+            parameter = `?page=${page}`;
         }
         return this.http.get(`${this._URL}/${resorce}/${parameter}`)
             .toPromise()
