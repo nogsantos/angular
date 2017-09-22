@@ -12,11 +12,11 @@
             <md-expansion-panel class="z-depth-2" *ngFor="let item of peoples; index as i; trackBy:mySave" (opened)="loadItems(item.homeworld, item.films, item.species, item.starships, item.vehicles)" hideToggle="true">
                 <md-expansion-panel-header>
                     <md-panel-title class="flow-text">
-                        <strong>{{item.name}}</strong>
+                        <span class="light"><span class="circle red darken-1 white-text">{{i + 1}}</span> {{item.name}}</span>
                     </md-panel-title>
                     <md-panel-description>
                         <md-icon>
-                            <img src="./assets/images/{{setGender(item.gender)}}" alt="{{item.gender}}">
+                            <img class="circle red darken-1" width="35" src="./assets/images/{{setGender(item.gender)}}">
                         </md-icon>
                     </md-panel-description>
                 </md-expansion-panel-header>
@@ -24,7 +24,7 @@
                     <div class="col s12 m12 l2">
                         <p>Bio</p>
                         <md-list>
-                            <md-list-item>Homeworld: {{homeworld}}<img *ngIf="loading.homeworld" src="./assets/images/ic_loader.gif"></md-list-item>
+                            <md-list-item>Homeworld: <a href="javascript:void(0)" (click)="openDialog('homeworld', item.homeworld)">{{homeworld}}</a><img *ngIf="loading.homeworld" src="./assets/images/ic_loader.gif"></md-list-item>
                             <md-list-item>Birth: {{item.birth_year}}</md-list-item>
                             <md-list-item>Eye color: {{item.eye_color}}</md-list-item>
                             <md-list-item>Hair color: {{item.hair_color}}</md-list-item>
@@ -38,7 +38,9 @@
                             <p>Filmes<img *ngIf="loading.films" src="./assets/images/ic_loader.gif"></p>
                             <md-list>
                                 <md-list-item *ngFor="let film of films; index as i">
-                                    {{film.title}} - <i>{{dateFormat(film.release_date)}}</i>
+                                    <a href="javascript:void(0)" (click)="openDialog('film', film.url)">
+                                        {{film.title}} - <i>{{dateFormat(film.release_date)}}</i>
+                                    </a>
                                 </md-list-item>
                             </md-list>
                         </div>
@@ -46,7 +48,9 @@
                             <p>Especies<img *ngIf="loading.species" src="./assets/images/ic_loader.gif"></p>
                             <md-list>
                                 <md-list-item *ngFor="let specie of species; index as i">
-                                    {{specie.name}}
+                                    <a href="javascript:void(0)" (click)="openDialog('specie', specie.url)">
+                                        {{specie.name}}
+                                    </a>
                                 </md-list-item>
                             </md-list>
                         </div>
@@ -54,7 +58,9 @@
                             <p>Espaçonaves<img *ngIf="loading.starships" src="./assets/images/ic_loader.gif"></p>
                             <md-list>
                                 <md-list-item *ngFor="let starship of starships; index as i">
-                                    {{starship.name}}
+                                    <a href="javascript:void(0)" (click)="openDialog('starship', starship.url)">
+                                        {{starship.name}}
+                                    </a>
                                 </md-list-item>
                             </md-list>
                         </div>
@@ -62,7 +68,9 @@
                             <p>Veículos<img *ngIf="loading.vehicles" src="./assets/images/ic_loader.gif"></p>
                             <md-list>
                                 <md-list-item *ngFor="let vehicle of vehicles; index as i">
-                                    {{vehicle.name}}
+                                    <a href="javascript:void(0)" (click)="openDialog('vehicle', vehicle.url)">
+                                        {{vehicle.name}}
+                                    </a>
                                 </md-list-item>
                             </md-list>
                         </div>

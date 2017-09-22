@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MdDialog } from '@angular/material';
 
 import * as $ from 'jquery';
 
 import { HttpService } from '../../../services/http/http.service';
 import { PeopleModel } from '../../people/model/people-model';
+import { PeopleFormComponent } from '../../people/people-form/people-form.component';
 
 @Component({
     selector: 'app-people-grid',
@@ -48,7 +50,8 @@ export class PeopleGridComponent implements OnInit {
      * @memberof PeopleGridComponent
      */
     constructor(
-        private service: HttpService
+        private service: HttpService,
+        public dialog: MdDialog
     ) { }
     /**
      * Init
@@ -68,6 +71,7 @@ export class PeopleGridComponent implements OnInit {
      */
     getPeoples() {
         this.loading.default = true;
+        this.page_loaded = [];
         this.service.get(this.resources.people).then(peoples => {
             if (peoples) {
                 this.peoples = peoples[`results`];
@@ -87,6 +91,7 @@ export class PeopleGridComponent implements OnInit {
     search(search_term: string): void {
         this.loading.default = true;
         this.peoples = [];
+        this.page_loaded = [];
         this.service.get(this.resources.people, { term: search_term }).then(people => {
             if (people) {
                 this.peoples = people[`results`];
@@ -349,5 +354,26 @@ export class PeopleGridComponent implements OnInit {
      */
     inArray(newvalue: number): boolean {
         return this.page_loaded.some((value, index) => newvalue === value);
+    }
+    /**
+     *
+     *
+     * @param {string} resource
+     * @param {string} param
+     * @memberof PeopleGridComponent
+     */
+    openDialog(resource: string, param: string): void {
+        const dialogRef = this.dialog.open(PeopleFormComponent, {
+            width: '50%',
+            height: '50%',
+            hasBackdrop: true,
+            data: {
+                resource: resource,
+                param: param
+            }
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed ' + result);
+        });
     }
 }

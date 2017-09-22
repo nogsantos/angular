@@ -18,6 +18,7 @@ import { PlanetsDetailsComponent } from './components/planets/planets-details/pl
 import { PlanetsGridComponent } from './components/planets/planets-grid/planets-grid.component';
 import { PeopleSearchComponent } from './components/people/people-search/people-search.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { PeopleFormComponent } from './components/people/people-form/people-form.component';
 
 @NgModule({
     imports: [
@@ -36,7 +37,11 @@ import { PaginationComponent } from './components/pagination/pagination.componen
         PlanetsDetailsComponent,
         PlanetsGridComponent,
         PeopleSearchComponent,
-        PaginationComponent
+        PaginationComponent,
+        PeopleFormComponent
+    ],
+    entryComponents: [
+        PeopleFormComponent
     ],
     providers: [
         HttpService
