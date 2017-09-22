@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import * as $ from 'jquery';
+
 import { HttpService } from '../../../services/http/http.service';
 import { PeopleModel } from '../../people/model/people-model';
-
-import * as $ from 'jquery';
-// declare var jquery: any;
-// declare var $: any;
-
 
 @Component({
     selector: 'app-people-grid',
@@ -20,10 +17,14 @@ export class PeopleGridComponent implements OnInit {
     species: Array<any>;
     starships: Array<any>;
     vehicles: Array<any>;
+    data_end: boolean;
+    paginator: boolean;
+    page_loaded: Array<number>;
     pagination = {
         count: null,
         next: null,
-        previous: null
+        previous: null,
+        current: null,
     };
     loading = {
         default: null,
@@ -73,6 +74,7 @@ export class PeopleGridComponent implements OnInit {
                 this.pagination.count = Math.round(peoples[`count`] / peoples[`results`].length);
                 this.pagination.next = peoples[`next`];
                 this.pagination.previous = peoples[`previous`];
+                this.data_end = false;
             }
             this.loading.default = false;
         });
@@ -85,41 +87,45 @@ export class PeopleGridComponent implements OnInit {
     search(search_term: string): void {
         this.loading.default = true;
         this.peoples = [];
-        this.service.get(this.resources.people, search_term).then(people => {
+        this.service.get(this.resources.people, { term: search_term }).then(people => {
             if (people) {
                 this.peoples = people[`results`];
                 this.pagination.count = people[`count`];
                 this.pagination.next = people[`next`];
                 this.pagination.previous = people[`previous`];
+                this.data_end = false;
             }
             this.loading.default = false;
         });
     }
     /**
-     * @todo
+     *
      *
      * @memberof PeopleGridComponent
      */
     paginate(page: string): void {
         this.loading.default = true;
-        // this.peoples = [];
         const search = this.getParameterByName('search', page);
         page = this.getParameterByName('page', page);
         if (search !== '' && search !== null) {
             page = `${page}&search=${search}`;
         }
-        this.service.get(this.resources.people, null, null, page).then(people => {
-            if (people) {
-                people[`results`].forEach(item => {
-                    this.peoples.push(item);
-                });
-                console.log(this.peoples);
-                this.pagination.count = people[`count`];
-                this.pagination.next = people[`next`];
-                this.pagination.previous = people[`previous`];
-            }
+        if (this.pagination.next !== null) {
+            this.service.get(this.resources.people, { page: page }).then(people => {
+                if (people) {
+                    people[`results`].forEach(item => {
+                        this.peoples.push(item);
+                    });
+                    this.pagination.count = people[`count`];
+                    this.pagination.next = people[`next`];
+                    this.pagination.previous = people[`previous`];
+                }
+                this.loading.default = false;
+            });
+        } else {
+            this.data_end = true;
             this.loading.default = false;
-        });
+        }
     }
     /**
      *
@@ -150,7 +156,7 @@ export class PeopleGridComponent implements OnInit {
         if (address.length > 0) {
             this.loading.homeworld = true;
             const id = address.split('/').reverse();
-            this.service.get(this.resources.planets, null, Number(id[1])).then(planet => {
+            this.service.get(this.resources.planets, { id: Number(id[1]) }).then(planet => {
                 this.homeworld = (planet) ? planet[`name`] : 'unknow';
                 this.loading.homeworld = false;
             });
@@ -168,7 +174,7 @@ export class PeopleGridComponent implements OnInit {
             this.loading.films = true;
             address.forEach(item => {
                 const id = item.split('/').reverse();
-                this.service.get(this.resources.films, null, Number(id[1])).then(response => {
+                this.service.get(this.resources.films, { id: Number(id[1]) }).then(response => {
                     if (response) {
                         this.films.push(response);
                     }
@@ -189,7 +195,7 @@ export class PeopleGridComponent implements OnInit {
             this.loading.species = true;
             address.forEach(item => {
                 const id = item.split('/').reverse();
-                this.service.get(this.resources.species, null, Number(id[1])).then(respose => {
+                this.service.get(this.resources.species, { id: Number(id[1]) }).then(respose => {
                     if (respose) {
                         this.species.push(respose);
                     }
@@ -210,7 +216,7 @@ export class PeopleGridComponent implements OnInit {
             this.loading.starships = true;
             address.forEach(item => {
                 const id = item.split('/').reverse();
-                this.service.get(this.resources.starships, null, Number(id[1])).then(respose => {
+                this.service.get(this.resources.starships, { id: Number(id[1]) }).then(respose => {
                     if (respose) {
                         this.starships.push(respose);
                     }
@@ -231,7 +237,7 @@ export class PeopleGridComponent implements OnInit {
             this.loading.vehicles = true;
             address.forEach(item => {
                 const id = item.split('/').reverse();
-                this.service.get(this.resources.vehicles, null, Number(id[1])).then(respose => {
+                this.service.get(this.resources.vehicles, { id: Number(id[1]) }).then(respose => {
                     if (respose) {
                         this.vehicles.push(respose);
                     }
@@ -302,31 +308,26 @@ export class PeopleGridComponent implements OnInit {
         }
         return decodeURIComponent(results[2].replace(/\+/g, ''));
     }
-
+    /**
+     *
+     *
+     * @memberof PeopleGridComponent
+     */
     pageScroll() {
-        let pageinit = 100;
-        $(window).on('scroll', event => {
-            const windscroll = $(window).scrollTop();
-            if (windscroll > pageinit) {
-                this.paginate(this.pagination.next);
-                pageinit += 100;
-            }
-            // if (window.innerWidth > 993) {
-            //     /*
-            //     * comparação
-            //     */
-            //     // if (windscroll > 10) {
-            //     //     $(this.ref_tab).addClass('fixed-scroll');
-            //     //     $(this.compare_dash).addClass('side-nav-scroll');
-            //     // } else {
-            //     //     $(this.ref_tab).removeClass('fixed-scroll');
-            //     //     $(this.compare_dash).removeClass('side-nav-scroll');
-            //     // }
-            // } else {
-            //     // $(this.ref_tab).removeClass('fixed-scroll');
-            //     // $(this.compare_dash).removeClass('side-nav-scroll');
-            // }
-        });
+        if (document.documentElement.scrollHeight !== document.documentElement.clientHeight) {
+            this.paginator = true;
+        } else {
+            this.paginator = false;
+            this.page_loaded = [];
+            $(window).on('scroll', event => {
+                if ($(window).scrollTop() + $(window).height() === $(document).height()) {
+                    if (!this.inArray(Number(this.getParameterByName('page', this.pagination.next)))) {
+                        this.page_loaded.push(Number(this.getParameterByName('page', this.pagination.next)));
+                        this.paginate(this.pagination.next);
+                    }
+                }
+            });
+        }
     }
     /**
      * Verifica	o ID de cada elemento da nova lista e compara com o
@@ -340,5 +341,13 @@ export class PeopleGridComponent implements OnInit {
      */
     mySave(index: number, names: any): number {
         return names.id;
+    }
+    /**
+     *
+     * @returns {boolean}
+     * @memberOf NgForComponent
+     */
+    inArray(newvalue: number): boolean {
+        return this.page_loaded.some((value, index) => newvalue === value);
     }
 }

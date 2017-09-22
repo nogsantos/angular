@@ -6,19 +6,13 @@
 <div class="row">
     <app-people-search (searchValue)="search($event)"></app-people-search>
 </div>
-<div class="row" *ngIf="loading.default">
-    <div class="col s12 m12 l12">
-        <md-progress-bar mode="indeterminate"></md-progress-bar>
-    </div>
-</div>
 <div class="row">
     <div class="col s12 m12 l12">
         <md-accordion class="people-grid-list">
-            <md-expansion-panel class="z-depth-2" *ngFor="let item of peoples; index as i; trackBy:mySave"
-                (opened)="loadItems(item.homeworld, item.films, item.species, item.starships, item.vehicles)" hideToggle="true">
+            <md-expansion-panel class="z-depth-2" *ngFor="let item of peoples; index as i; trackBy:mySave" (opened)="loadItems(item.homeworld, item.films, item.species, item.starships, item.vehicles)" hideToggle="true">
                 <md-expansion-panel-header>
                     <md-panel-title class="flow-text">
-                        {{item.name}}
+                        <strong>{{item.name}}</strong>
                     </md-panel-title>
                     <md-panel-description>
                         <md-icon>
@@ -77,16 +71,17 @@
             </md-expansion-panel>
         </md-accordion>
     </div>
-    <div class="row">
-        <app-pagination
-            [count]="pagination.count"
-            [next]="pagination.next"
-            [previous]="pagination.previous"
-            (page)="paginate($event)"></app-pagination>
-        <!-- <div class="col s12">
-            total: {{pagination.count}}
-            <span (click)="paginate(pagination.next)">next</span>
-            <span (click)="paginate(pagination.previous)">prev</span>
-        </div> -->
+</div>
+<div class="row center" *ngIf="paginator && !data_end">
+    <button md-mini-fab class="green lighten-1" (click)="paginate(pagination.next)" mdTooltip="Carregar mais...">
+        <md-icon><img src="./assets/images/ic_reload.svg"></md-icon>
+    </button>
+</div>
+<div class="row center" *ngIf="data_end">
+    <p>Todos os dados foram carregados</p>
+</div>
+<div class="row">
+    <div class="col s12 m12 l12" *ngIf="loading.default">
+        <md-progress-bar mode="indeterminate"></md-progress-bar>
     </div>
 </div>

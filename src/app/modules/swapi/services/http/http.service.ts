@@ -19,26 +19,29 @@ export class HttpService {
      * Get
      *
      * @param {string} resorce
-     * @param {string} [search_by]
-     * @param {number} [id]
+     * @param {string} [search_by] {term, id, page}
      * @returns {Promise<any[]>}
      * @memberof HttpService
      */
-    get(resorce: string, search_by?: string, id?: number, page?: string): Promise<any[]> {
+    get(resorce: string, search_by?: { term?: string, id?: number, page?: string }): Promise<any[]> {
         let parameter = '';
         if (search_by) {
-            parameter = `?search=${search_by}`;
+            if (search_by.term) {
+                parameter = `?search=${search_by.term}`;
+            }
+            if (search_by.id) {
+                parameter = `${search_by.id}`;
+            }
+            if (search_by.page) {
+                parameter = `?page=${search_by.page}`;
+            }
         }
-        if (id) {
-            parameter = `${id}`;
-        }
-        if (page) {
-            parameter = `?page=${page}`;
-        }
-        return this.http.get(`${this._URL}/${resorce}/${parameter}`)
-            .toPromise()
-            .then(response => response.json())
-            .catch(this.handleError);
+        return this.http.get(
+            `${this._URL}/${resorce}/${parameter}`,
+            {
+                headers: this.headers
+            }
+        ).toPromise().then(response => response.json()).catch(this.handleError);
     }
     /**
      * Error
@@ -49,7 +52,7 @@ export class HttpService {
      * @memberof HttpService
      */
     private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error); // for demo purposes only
+        alert(`An error occurred\n ${error}`);
         return Promise.reject(error.message || error);
     }
 
